@@ -1,8 +1,3 @@
-/**
- * A repository for fetching weather and forecast data.
- * @class WeatherRepository
- */
-
 class CurrentWeatherRepository {
   constructor(apiService, weatherPersistence) {
     this.apiService = apiService;
@@ -13,7 +8,7 @@ class CurrentWeatherRepository {
     try {
       const cachedWeather = await this.weatherPersistence.getCurrentWeather();
       if (cachedWeather) {
-        return cachedWeather
+        return cachedWeather;
       }
       const weatherData = await this.apiService.getCurrentWeather(lat, lon);
       await this.weatherPersistence.saveCurrentWeather(weatherData);
@@ -29,11 +24,11 @@ class CurrentWeatherRepository {
     try {
       const cachedForecast = await this.weatherPersistence.getForecast();
       if (cachedForecast) {
-        return cachedForecast
+        return cachedForecast;
       }
       const forecastData = await this.apiService.get5DayForecast(lat, lon);
       await this.weatherPersistence.saveForecast(forecastData);
-      
+
       return cachedForecast;
     } catch (error) {
       console.log(error);

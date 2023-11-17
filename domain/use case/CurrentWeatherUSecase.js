@@ -15,7 +15,7 @@ class CurrentWeatherUsecase {
 
   async get5DayForecast() {
     location = await getLocation();
-    return await this.currentWeatherRepository.get5DayForecast(location.latitude, location.longitude)
+    return await this.currentWeatherRepository.get5DayForecast(location.latitude, location.longitude);
   }
 }
 
