@@ -1,9 +1,9 @@
+const { default: AsyncStorage } = require("@react-native-async-storage/async-storage");
+
 /**
  * The @class is responsible for caching weather data using AsyncStorage.
  */
 
-
-const { default: AsyncStorage } = require("@react-native-async-storage/async-storage");
 class WeatherCache {
   /**
    * Saves current weather data to local storage.

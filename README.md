@@ -41,23 +41,22 @@ The provided React Native project focuses on building a weather application as p
   npx expo start / sudo npx expo start
 
 3. **Additional notes**
-  ```bash
   Ensure that the api key is set on the .env file.
 
-### Code structure
-##### Data
-**local storage**: Contains the `WeatherCache` class for handling local storage for weather data.
-**services**: Contains the `ApiService` class for making API requests.
+  ### Code structure
+  ##### Data
+  **local storage**: Contains the `WeatherCache` class for handling local storage for weather data.
+  **services**: Contains the `ApiService` class for making API requests.
 
-##### Domain
-**repository**: Contains `CurrentWeatherRepository` responsible for fetching and caching weather data.
-**use case**: Contains `CurrentWeatherUsecase` responsible for connecting the presentation layer with the repository.
+  ##### Domain
+  **repository**: Contains `CurrentWeatherRepository` responsible for fetching and caching weather data.
+  **use case**: Contains `CurrentWeatherUsecase` responsible for connecting the presentation layer with the repository.
 
-##### Presentation
-**components**: Contains UI componetns `CurrentWeatherView`, `ForecastView`, `ForecastRow`.
-**screens**: Contains `WeatherScreem` which is the parent view for `CurrentWeatherVeiw` and `ForecastView`.
-**state**: Contains a redux slice for managing state, and a store for store configuration.
-**view-model**: Contains `weatherViewModel` for managing state related to weather information.
+  ##### Presentation
+  **components**: Contains UI componetns `CurrentWeatherView`, `ForecastView`, `ForecastRow`.
+  **screens**: Contains `WeatherScreem` which is the parent view for `CurrentWeatherVeiw` and `ForecastView`.
+  **state**: Contains a redux slice for managing state, and a store for store configuration.
+  **view-model**: Contains `weatherViewModel` for managing state related to weather information.
 
-##### Util
-**constants**: Contains shared configuration.
+  ##### Util
+  **constants**: Contains shared configuration.

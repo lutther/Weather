@@ -1,13 +1,12 @@
+import axios from "axios";
+import { API_KEY } from "@env"
+import { BASE_URL } from "../../util/constants";
+
 /**
  * Handles API request related to weather data.
  * 
  * @class
  */
-
-
-import axios from "axios";
-import { API_KEY } from "@env"
-import { BASE_URL } from "../../util/constants";
 
 class ApiService {
 
