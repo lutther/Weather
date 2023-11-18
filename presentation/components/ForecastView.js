@@ -1,6 +1,11 @@
 import { View, Text, StyleSheet } from "react-native"
 import ForecastRow from "./ForecastRow";
 
+/**
+ * This is the parent container for the 5 day weather forecast.
+ * Iterates through the weater array and passes the data to the ForecastRow view.
+ * 
+ */
 
 const ForecastView = ({forecast, loading, backgroundColor}) => {
 

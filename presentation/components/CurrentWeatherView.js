@@ -1,10 +1,15 @@
-import { useEffect } from "react"
 import { View, Text, StyleSheet, ImageBackground } from "react-native"
+
+/**
+ * Displays the current weather.
+ * 
+ * @component
+ */
 
 const CurrentWeatherView = ({currentWeather, backgroundImage, condition}) => {
 
   return (
-    <>
+    <View>
       <ImageBackground style={styles.backgroundContainer} source={backgroundImage} resizeMode="cover">
         <View style={styles.current}>
           <Text style={styles.temp}>{Math.floor(currentWeather.temp)}°</Text>
@@ -28,7 +33,7 @@ const CurrentWeatherView = ({currentWeather, backgroundImage, condition}) => {
         </View>
         
       </ImageBackground>
-    </>
+    </View>
   );
 }
 

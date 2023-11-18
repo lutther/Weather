@@ -1,18 +1,25 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 
+/**
+ * Displays the 5 day weather forecast.
+ * 
+ */
+
 const ForecastRow = ({forecast}) => {
 
   var background;
 
   switch(forecast.main) {
     case "Clouds":
-      background = require("../../assets/icons/clear2x.png");
+      background = require("../../assets/icons/partlysunny2x.png");
       break;
     case "Rain":
       background = require("../../assets/icons/rain2x.png");
       break;
     case "Sunny":
-      background = require("../../assets/icons/partlysunny2x.png");
+      background = require("../../assets/icons/clear2x.png");
+    case "Clear":
+      background = require("../../assets/icons/clear2x.png");
   }
 
   return (

@@ -3,6 +3,10 @@ import weatherViewModel from "../view-models/weatherViewModel";
 import CurrentWeatherView from "../components/CurrentWeatherView";
 import ForecastView from "../components/ForecastView";
 
+/**
+ * This is the parent container for CurrentWeatherView and ForecastVeiw.
+ */
+
 const WeatherScreen = () => {
   const { currentWeather, forecast, backgroundImage, loading, error } = weatherViewModel();
 
@@ -50,7 +54,10 @@ const WeatherScreen = () => {
         currentWeather={currentWeather} 
         backgroundImage={background}
         condition={condition} />
-      <ForecastView forecast={forecast} loading={loading} backgroundColor={backgdroundColor} />
+      <ForecastView 
+        forecast={forecast} 
+        loading={loading} 
+        backgroundColor={backgdroundColor} />
     </View>
   );
 }
