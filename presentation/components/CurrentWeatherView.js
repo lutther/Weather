@@ -6,14 +6,14 @@ import { View, Text, StyleSheet, ImageBackground } from "react-native"
  * @component
  */
 
-const CurrentWeatherView = ({currentWeather, backgroundImage, condition}) => {
+const CurrentWeatherView = ({currentWeather, backgroundImage, weatherCondition}) => {
 
   return (
-    <View>
+    <View style={styles.container}>
       <ImageBackground style={styles.backgroundContainer} source={backgroundImage} resizeMode="cover">
         <View style={styles.current}>
           <Text style={styles.temp}>{Math.floor(currentWeather.temp)}°</Text>
-          <Text style={styles.condition}>{condition}</Text>
+          <Text style={styles.condition}>{weatherCondition}</Text>
         </View>
         
 
@@ -40,8 +40,11 @@ const CurrentWeatherView = ({currentWeather, backgroundImage, condition}) => {
 export default CurrentWeatherView;
 
 const styles = StyleSheet.create({
-  backgroundContainer: {
+  container: {
     flex: 1,
+  },
+  backgroundContainer: {
+    flex: 1
   },
   current: {
     flex: 1,

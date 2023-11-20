@@ -43,7 +43,7 @@ The provided React Native project focuses on building a weather application as p
 ```
 
 3. **Additional notes**
-  Ensure that the api key is set on the .env file.
+  - Ensure that the api key is set on the .env file.
 
   - ### Code structure
   - ##### Data

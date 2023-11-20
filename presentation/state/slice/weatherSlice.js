@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   currentWeather: {},
   forecast: {},
-  backgroundImage: "",
+  condition: "",
   loading: true,
   error: "",
 };
@@ -18,8 +18,8 @@ const currentWeatherSlice = createSlice({
     setForecast: (state, action) => {
       state.forecast = action.payload;
     },
-    setBackground: (state, action) => {
-      state.backgroundImage = action.payload;
+    setCondition: (state, action) => {
+      state.condition = action.payload;
     },
     setLoading: (state, action) => {
       state.loading = action.payload;
@@ -30,6 +30,6 @@ const currentWeatherSlice = createSlice({
   },
 });
 
-export const { setCurrentWeather, setForecast, setBackground, setLoading, setError } =
+export const { setCurrentWeather, setForecast, setCondition, setLoading, setError } =
   currentWeatherSlice.actions;
 export default currentWeatherSlice.reducer;

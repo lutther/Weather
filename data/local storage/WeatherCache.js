@@ -30,8 +30,7 @@ class WeatherCache {
   async getCurrentWeather() {
     try {
       const jsonValue = await AsyncStorage.getItem("favoritePlace");
-      if (jsonValue
-         !== null) {
+      if (jsonValue !== null) {
         return JSON.parse(jsonValue);
       }
     } catch (error) {

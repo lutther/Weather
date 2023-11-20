@@ -2,6 +2,7 @@ import WeatherCache from "../../data/local storage/WeatherCache"
 import ApiService from "../../data/services/ApiService"
 import { getLocation } from "../getLocation";
 import CurrentWeatherRepository from "../repository/CurrentWeatherRepository"
+import { daysOfWeek } from "../../util/constants";
 
 /**
  * Responsible for connecting the presentation layer with the repository.
@@ -25,9 +26,11 @@ class CurrentWeatherUsecase {
   async getCurrentWeather() {
     try {
       location = await getLocation();
-      return await this.currentWeatherRepository.getCurrentWeather(location.latitude, location.longitude);
+      const currentWeatherData = await this.currentWeatherRepository.getCurrentWeather(location.latitude, location.longitude);
+      const {main: {temp, temp_max, temp_min}, weather: [{main}]} = currentWeatherData;
+      return {temp, temp_max, temp_min, main};
     } catch(error) {
-      return error
+      throw error
     }
   }
 
@@ -41,9 +44,24 @@ class CurrentWeatherUsecase {
   async get5DayForecast() {
     try {
       location = await getLocation();
-      return await this.currentWeatherRepository.get5DayForecast(location.latitude, location.longitude);
+      const forecastData = await this.currentWeatherRepository.get5DayForecast(location.latitude, location.longitude);
+      const forecast5Day = forecastData
+        .list
+        .filter(forecast => forecast.dt_txt.includes("12:00"))
+        .map((item, index) => {
+          const { main: { temp }, dt_txt, weather: [{main}] } = item;
+          const date = new Date(dt_txt);
+          const dayOfWeek = daysOfWeek[date.getDay()];
+        
+          return {
+            dayOfWeek,
+            temp,
+            main
+          };
+        });
+      return forecast5Day;
     } catch(error) {
-      return error
+      throw error
     }
   }
 }

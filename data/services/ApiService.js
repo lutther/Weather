@@ -25,7 +25,7 @@ class ApiService {
       const response = await axios.get(`${BASE_URL}${END_POINT}`);
       return response.data;
     } catch (error) {
-      return error.message;
+      throw error.message;
     }
   }
 
@@ -43,7 +43,7 @@ class ApiService {
       const response = await axios.get(`${BASE_URL}${END_POINT}`);
       return response.data;
     } catch (error) {
-      return error.message;
+      throw error.message;
     }
   }
 }

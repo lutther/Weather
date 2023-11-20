@@ -28,11 +28,13 @@ class CurrentWeatherRepository {
   async getCurrentWeather(lat, lon) {
     try {
       const weatherData = await this.apiService.getCurrentWeather(lat, lon);
-      const cachedWeather = await this.weatherCache.getCurrentWeather();
       await this.weatherCache.saveCurrentWeather(weatherData);
-      return cachedWeather;
+      return weatherData;
     } catch (error) {
-      console.log("Error fetching weather", error);
+      const cachedWeather = await this.weatherCache.getCurrentWeather();
+      if (cachedWeather) {
+        return cachedWeather;
+      }
       throw error;
     }
   }
@@ -48,11 +50,13 @@ class CurrentWeatherRepository {
   async get5DayForecast(lat, lon) {
     try {
       const forecastData = await this.apiService.get5DayForecast(lat, lon);
-      const cachedForecast = await this.weatherCache.getForecast();
       await this.weatherCache.saveForecast(forecastData);
-      return cachedForecast;
+      return forecastData;
     } catch (error) {
-      console.log(error);
+      const cachedForecast = await this.weatherCache.getForecast();
+      if (cachedForecast) {
+        return cachedForecast;
+      }
       throw error;
     }
   }

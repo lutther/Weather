@@ -8,27 +8,27 @@ import ForecastView from "../components/ForecastView";
  */
 
 const WeatherScreen = () => {
-  const { currentWeather, forecast, backgroundImage, loading, error } = weatherViewModel();
+  const { currentWeather, forecast, condition, loading, error } = weatherViewModel();
 
   var background;
   var backgdroundColor;
-  var condition;
+  var weatherCondition;
 
-  switch (backgroundImage) {
+  switch (condition) {
     case "Clouds":
       background = require("../../assets/images/forest_cloudy.png");
       backgdroundColor = "#54717A";
-      condition = "CLOUDY";
+      weatherCondition = "CLOUDY";
       break;
     case "Rain":
       background = require("../../assets/images/forest_rainy.png");
       backgdroundColor = "#57575D";
-      condition = "RAINY";
+      weatherCondition = "RAINY";
       break;
     case "Sunny":
       background = require("../../assets/images/forest_sunny.png");
       backgdroundColor = "#47AB2F";
-      condition = "SUNNY";
+      weatherCondition = "SUNNY";
       break;
   }
   
@@ -53,7 +53,7 @@ const WeatherScreen = () => {
       <CurrentWeatherView 
         currentWeather={currentWeather} 
         backgroundImage={background}
-        condition={condition} />
+        weatherCondition={weatherCondition} />
       <ForecastView 
         forecast={forecast} 
         loading={loading} 
