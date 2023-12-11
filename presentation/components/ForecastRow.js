@@ -1,4 +1,5 @@
 import { View, Text, Image, StyleSheet } from "react-native";
+import { roundOfNumber } from "../../util/helpers";
 
 /**
  * Displays the 5 day weather forecast.
@@ -31,7 +32,7 @@ const ForecastRow = ({forecast}) => {
         <Image style={styles.icons} source={background} />
       </View>
       <View style={styles.rowItem}>
-        <Text style={[styles.textItem, styles.alignRight]}>{Math.floor(forecast.temp)}°</Text>
+        <Text style={[styles.textItem, styles.alignRight]}>{roundOfNumber(forecast.temp)}°</Text>
       </View>
     </View>
   );

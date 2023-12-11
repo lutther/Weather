@@ -1,4 +1,6 @@
-import { View, Text, StyleSheet, ImageBackground } from "react-native"
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import { WHITE } from "../../util/constants";
+import { roundOfNumber } from "../../util/helpers";
 
 /**
  * Displays the current weather.
@@ -12,22 +14,21 @@ const CurrentWeatherView = ({currentWeather, backgroundImage, weatherCondition})
     <View style={styles.container}>
       <ImageBackground style={styles.backgroundContainer} source={backgroundImage} resizeMode="cover">
         <View style={styles.current}>
-          <Text style={styles.temp}>{Math.floor(currentWeather.temp)}°</Text>
+          <Text style={styles.temp}>{roundOfNumber(currentWeather.temp)}°</Text>
           <Text style={styles.condition}>{weatherCondition}</Text>
         </View>
-        
 
         <View style={styles.weatherBottom}>
           <View style={styles.rowItem}>
-            <Text style={styles.textItem}>{Math.floor(currentWeather.temp_min)}°</Text>
+            <Text style={styles.textItem}>{roundOfNumber(currentWeather.temp_min)}°</Text>
             <Text style={styles.textItem}>min</Text>
           </View>
           <View style={styles.rowItem}>
-            <Text style={styles.textItem}>{Math.floor(currentWeather.temp)}°</Text>
+            <Text style={styles.textItem}>{roundOfNumber(currentWeather.temp)}°</Text>
             <Text style={styles.textItem}>Current</Text>
           </View>
           <View style={styles.rowItem}>
-            <Text style={styles.textItem}>{Math.floor(currentWeather.temp_max)}°</Text>
+            <Text style={styles.textItem}>{roundOfNumber(currentWeather.temp_max)}°</Text>
             <Text style={styles.textItem}>max</Text>
           </View>
         </View>
@@ -51,13 +52,13 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   temp: {
-    color: "#FFFFFF",
+    color: WHITE,
     fontSize: 80,
     fontWeight: "500",
     textAlign: "center"
   },
   condition: {
-    color: "#FFFFFF",
+    color: WHITE,
     fontSize: 40,
     textAlign: "center"
   },
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   textItem: {
-    color: "#FFF",
+    color: WHITE,
     fontWeight: "500",
     fontSize: 16,
     textAlign: "center"

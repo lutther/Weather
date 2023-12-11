@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import weatherViewModel from "../view-models/weatherViewModel";
 import CurrentWeatherView from "../components/CurrentWeatherView";
 import ForecastView from "../components/ForecastView";
+import { SUNNY, CLOUDY, RAINY } from "../../util/constants";
 
 /**
  * This is the parent container for CurrentWeatherView and ForecastVeiw.
@@ -17,17 +18,17 @@ const WeatherScreen = () => {
   switch (condition) {
     case "Clouds":
       background = require("../../assets/images/forest_cloudy.png");
-      backgdroundColor = "#54717A";
+      backgdroundColor = CLOUDY;
       weatherCondition = "CLOUDY";
       break;
     case "Rain":
       background = require("../../assets/images/forest_rainy.png");
-      backgdroundColor = "#57575D";
+      backgdroundColor = RAINY;
       weatherCondition = "RAINY";
       break;
     case "Sunny":
       background = require("../../assets/images/forest_sunny.png");
-      backgdroundColor = "#47AB2F";
+      backgdroundColor = SUNNY;
       weatherCondition = "SUNNY";
       break;
   }
