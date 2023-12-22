@@ -46,15 +46,15 @@ The provided React Native project focuses on building a weather application as p
   - Ensure that the api key is set on the .env file.
 
   - ### Code structure
-  - ##### Data
+  - #### Data
   - **local storage**: Contains the `WeatherCache` class for handling local storage for weather data.
   - **services**: Contains the `ApiService` class for making API requests.
 
-  - ##### Domain
+  - #### Domain
   - **repository**: Contains `CurrentWeatherRepository` responsible for fetching and caching weather data.
   - **use case**: Contains `CurrentWeatherUsecase` responsible for connecting the presentation layer with the repository.
 
-  - ##### Presentation
+  - #### Presentation
   - **components**: Contains UI componetns `CurrentWeatherView`, `ForecastView`, `ForecastRow`.
   - **screens**: Contains `WeatherScreem` which is the parent view for `CurrentWeatherVeiw` and `ForecastView`.
   - **state**: Contains a redux slice for managing state, and a store for store configuration.
