@@ -1,6 +1,6 @@
 import WeatherCache from "../../data/local storage/WeatherCache"
 import ApiService from "../../data/services/ApiService"
-import { getLocation } from "../getLocation";
+import { getLocation } from "../../data/getLocation";
 import CurrentWeatherRepository from "../repository/CurrentWeatherRepository"
 import { daysOfWeek } from "../../util/constants";
 
